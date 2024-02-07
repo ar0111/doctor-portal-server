@@ -77,7 +77,11 @@ async function run() {
         treatment:booking.treatment
       }
 
+      console.log(query);
+
       const alreadyBooked = await bookingCollection.find(query).toArray();
+
+      console.log(alreadyBooked);
       if(alreadyBooked.length){
         const message = `You have already booking on ${booking.appointmentDate}`;
         return res.send({acknowledged:false, message})
